@@ -4,7 +4,7 @@ import productApi from 'src/apis/product.api'
 import ProductRating from 'src/components/ProductRating'
 import { formatCurrency, formatNumberToSocialStyle, getIdFromNameId, rateSale } from 'src/utils/utils'
 import DOMPurify from 'dompurify'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Product as ProductType, ProductListConfig } from 'src/types/product.type'
 import Product from '../ProductList/components/Product'
 import QuantityController from 'src/components/QuantityController'
@@ -15,7 +15,9 @@ import path from 'src/constants/path'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { convert } from 'html-to-text'
+import { AppContext } from 'src/contexts/app.context'
 export default function ProductDetail() {
+  const { isAuthenticated } = useContext(AppContext)
   const { t } = useTranslation('product')
   const queryClient = useQueryClient()
   const [buyCount, setBuyCount] = useState(1)
@@ -82,6 +84,10 @@ export default function ProductDetail() {
     setBuyCount(value)
   }
   const addToCart = () => {
+    if (!isAuthenticated) {
+      navigate(path.login)
+      return
+    }
     addToCartMutation.mutate(
       { buy_count: buyCount, product_id: id },
       {
@@ -93,6 +99,10 @@ export default function ProductDetail() {
     )
   }
   const buyNow = async () => {
+    if (!isAuthenticated) {
+      navigate(path.login)
+      return
+    }
     const response = await addToCartMutation.mutateAsync({ buy_count: buyCount, product_id: id })
     const purchase = response.data.data
     navigate(path.cart, {
@@ -118,7 +128,7 @@ export default function ProductDetail() {
       <div className='container'>
         <div className='p-4 bg-white shadow'>
           <div className='grid grid-cols-12 gap-9'>
-            <div className='col-span-5'>
+            <div className='col-span-12 lg:col-span-5'>
               <div
                 className='relative cursor-zoom-in w-full pt-[100%] shadow overflow-hidden'
                 onMouseMove={handleZoom}
@@ -181,7 +191,7 @@ export default function ProductDetail() {
                 </button>
               </div>
             </div>
-            <div className='col-span-7'>
+            <div className='col-span-12 lg:col-span-7'>
               <h1 className='text-xl font-medium uppercase'>{product.name}</h1>
               <div className='flex items-center mt-8'>
                 <div className='flex items-center'>

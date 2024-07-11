@@ -48,7 +48,7 @@ export default function SortProductList({ pageSize, queryConfig }: Props) {
   return (
     <div className='px-3 py-4 bg-gray-300/40'>
       <div className='flex flex-wrap items-center justify-between'>
-        <div className='flex flex-wrap items-center gap-2'>
+        <div className='flex flex-wrap items-center gap-5 lg:gap-2'>
           <div>Sắp xếp theo</div>
           <button
             className={classNames('h-8 px-4 text-sm text-center  capitalize ', {
@@ -78,7 +78,7 @@ export default function SortProductList({ pageSize, queryConfig }: Props) {
             Bán chạy
           </button>
           <select
-            className={classNames('h-8 px-4 text-sm text-left  capitalize outline-none ', {
+            className={classNames('h-8 px-4 text-sm text-left mb-5 md:mb-0 capitalize outline-none ', {
               'bg-orange text-white hover:bg-orange/80': isActiveSortBy(sortBy.price),
               'bg-white text-black hover:bg-slate-100': !isActiveSortBy(sortBy.price)
             })}

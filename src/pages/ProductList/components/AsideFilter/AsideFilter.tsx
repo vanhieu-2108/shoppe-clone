@@ -73,7 +73,7 @@ export default function AsideFilter({ categories, queryConfig }: Props) {
     })
   }
   return (
-    <div className='py-4'>
+    <div className='hidden py-4 lg:block'>
       <Link
         to={path.home}
         className={classNames('flex items-center font-bold', {
