@@ -48,7 +48,7 @@ export default function Header() {
               placeholder='Search...'
               {...register('name')}
             />
-            <button className='flex-shrink-0 px-6 py-2 rounded-sm bg-orange hover:bg-orange/90'>
+            <button className='flex-shrink-0 px-2 py-1 rounded-sm lg:px-6 lg:py-2 bg-orange hover:bg-orange/90'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
@@ -127,7 +127,7 @@ export default function Header() {
                 />
               </svg>
               {purchasesInCart && isAuthenticated && (
-                <span className='absolute -top-[5px] left-[17px] py-[1px] text-xs bg-white rounded-full px-[9px] text-orange'>
+                <span className='absolute left-[5px] -top-[5px] lg:-top-[5px] lg:left-[17px] py-[1px] text-xs bg-white rounded-full px-[9px] text-orange'>
                   {purchasesInCart?.length}
                 </span>
               )}

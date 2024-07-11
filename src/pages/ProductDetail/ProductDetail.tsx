@@ -127,7 +127,7 @@ export default function ProductDetail() {
       </Helmet>
       <div className='container'>
         <div className='p-4 bg-white shadow'>
-          <div className='grid grid-cols-12 gap-9'>
+          <div className='grid grid-cols-12 gap-y-0 lg:gap-9'>
             <div className='col-span-12 lg:col-span-5'>
               <div
                 className='relative cursor-zoom-in w-full pt-[100%] shadow overflow-hidden'

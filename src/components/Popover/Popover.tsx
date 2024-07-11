@@ -34,6 +34,7 @@ export default function Popover({ children, renderPopover, className }: Props) {
   const focus = useFocus(context)
   const dismiss = useDismiss(context)
   const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss])
+  const left = middlewareData.arrow?.x && middlewareData.arrow?.x - 20
   return (
     <div className={className} {...getReferenceProps()} ref={refs.setReference}>
       {children}
@@ -54,9 +55,9 @@ export default function Popover({ children, renderPopover, className }: Props) {
             >
               <span
                 ref={arrowRef}
-                className='absolute z-10 -translate-y-[95%] translate-x-1/2 border-[14px] border-x-transparent border-t-transparent border-b-white'
+                className='absolute z-10 -translate-y-[90%] translate-x-[80%] border-[14px] border-x-transparent border-t-transparent border-b-white'
                 style={{
-                  left: `${middlewareData.arrow?.x}px`,
+                  left: `${left}px`,
                   top: `${middlewareData.arrow?.y}px`
                 }}
               />
