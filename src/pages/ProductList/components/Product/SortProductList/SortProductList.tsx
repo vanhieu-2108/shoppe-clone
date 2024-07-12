@@ -96,7 +96,7 @@ export default function SortProductList({ pageSize, queryConfig }: Props) {
             </option>
           </select>
         </div>
-        <div className='flex items-center mt-5 lg:mt-0'>
+        <div className='flex items-center mt-5 md:mt-0'>
           <div>
             <span className='text-orange'>{page}</span>
             <span>/{pageSize}</span>
