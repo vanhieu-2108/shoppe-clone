@@ -78,7 +78,7 @@ export default function SortProductList({ pageSize, queryConfig }: Props) {
             Bán chạy
           </button>
           <select
-            className={classNames('h-8 px-4 text-sm text-left mb-5 md:mb-0 capitalize outline-none ', {
+            className={classNames('h-8 px-4 text-sm text-left md:mb-0 capitalize outline-none ', {
               'bg-orange text-white hover:bg-orange/80': isActiveSortBy(sortBy.price),
               'bg-white text-black hover:bg-slate-100': !isActiveSortBy(sortBy.price)
             })}
@@ -96,7 +96,7 @@ export default function SortProductList({ pageSize, queryConfig }: Props) {
             </option>
           </select>
         </div>
-        <div className='flex items-center'>
+        <div className='flex items-center mt-5 lg:mt-0'>
           <div>
             <span className='text-orange'>{page}</span>
             <span>/{pageSize}</span>
