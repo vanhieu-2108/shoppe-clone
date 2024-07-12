@@ -130,7 +130,7 @@ export default function ProductDetail() {
           <div className='grid grid-cols-12 gap-y-0 lg:gap-9'>
             <div className='col-span-12 lg:col-span-5'>
               <div
-                className='relative cursor-zoom-in w-full pt-[100%] shadow overflow-hidden'
+                className='relative cursor-zoom-in w-full pt-[100%] shadow overflow-hidden pointer-events-none lg:pointer-events-auto'
                 onMouseMove={handleZoom}
                 onMouseLeave={handelRemoveZoom}
               >
